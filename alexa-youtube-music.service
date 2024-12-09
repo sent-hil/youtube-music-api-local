@@ -1,0 +1,15 @@
+[Unit]
+Description=Youtube Music Api
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node app.js
+Restart=always
+User=pi
+Environment=PATH=/usr/bin:/usr/local/bin
+WorkingDirectory=/home/pi/youtube-music-api-local
+StandardOutput=file:/var/log/youtube-music-api.log
+StandardError=file:/var/log/youtube-music-api-error.log
+
+[Install]
+WantedBy=multi-user.target

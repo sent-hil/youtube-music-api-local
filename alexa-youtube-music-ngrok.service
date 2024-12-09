@@ -1,0 +1,15 @@
+[Unit]
+Description=Youtube Music Ngrok
+After=network.target
+
+[Service]
+ExecStart=ngrok http --url=actively-cuddly-tarpon.ngrok-free.app 9000
+Restart=always
+User=pi
+Environment=PATH=/usr/bin:/usr/local/bin
+WorkingDirectory=/home/pi/youtube-music-api-local
+StandardOutput=file:/var/log/youtube-music-api-ngrok.log
+StandardError=file:/var/log/youtube-music-api-ngrok-error.log
+
+[Install]
+WantedBy=multi-user.target
